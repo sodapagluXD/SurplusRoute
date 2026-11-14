@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Utensils,
@@ -63,6 +64,14 @@ const WORKFLOW_STEPS = [
 
 export default function AuthPage() {
   const navigate = useNavigate();
+  const containerRef = useRef(null);
+
+  const handleMouseMove = (e) => {
+    if (!containerRef.current) return;
+    const rect = containerRef.current.getBoundingClientRect();
+    containerRef.current.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+    containerRef.current.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+  };
 
   const [isLogin, setIsLogin] = useState(true);
   const [role, setRole] = useState('Donor'); // 'Donor' | 'NGO'
@@ -179,10 +188,19 @@ export default function AuthPage() {
   const currentStep = WORKFLOW_STEPS[activeStep];
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 relative overflow-hidden flex items-center justify-center p-4 sm:p-6 lg:p-10">
-      {/* Subtle Ambient Background Glows */}
-      <div className="pointer-events-none absolute -top-32 -left-32 w-96 h-96 rounded-full bg-emerald-500/10 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-teal-500/10 blur-3xl" />
+    <div
+      ref={containerRef}
+      onMouseMove={handleMouseMove}
+      className="min-h-screen bg-slate-950 text-slate-100 relative overflow-hidden flex items-center justify-center p-4 sm:p-6 lg:p-10"
+    >
+      {/* Interactive Cursor-Following Glow */}
+      <div
+        className="pointer-events-none fixed inset-0 z-0"
+        style={{
+          background:
+            'radial-gradient(650px circle at var(--mouse-x, 50%) var(--mouse-y, 35%), rgba(16, 185, 129, 0.15), rgba(20, 184, 166, 0.06) 40%, transparent 75%)',
+        }}
+      />
 
       <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
         {/* LEFT COLUMN: Interactive Mission & Live Telemetry Showcase */}
