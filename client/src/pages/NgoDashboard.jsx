@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import api from '../api/axios';
 import DonationMap from '../components/DonationMap';
+import BrandLogo from '../components/BrandLogo';
 
 export default function NgoDashboard() {
   const navigate = useNavigate();
@@ -125,17 +126,7 @@ export default function NgoDashboard() {
       {/* Top Navbar */}
       <header className="border-b border-slate-800/80 bg-slate-900/60 backdrop-blur-xl sticky top-0 z-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-              <HeartHandshake className="w-5 h-5" />
-            </div>
-            <div>
-              <span className="font-bold text-white tracking-tight">SurplusRoute</span>
-              <span className="ml-2 text-xs px-2 py-0.5 rounded-full bg-teal-500/10 text-teal-400 border border-teal-500/20">
-                NGO Dispatch
-              </span>
-            </div>
-          </div>
+          <BrandLogo badge="NGO Dispatch" />
 
           <div className="flex items-center gap-4">
             <span className="text-sm text-slate-400 hidden sm:inline">{user?.name}</span>

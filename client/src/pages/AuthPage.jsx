@@ -1,4 +1,4 @@
-
+import BrandLogo from '../components/BrandLogo';
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -212,6 +212,7 @@ export default function AuthPage() {
           </div>
 
           <div className="space-y-3">
+            <BrandLogo size="lg" />
             <div className="flex items-center gap-3">
               <div className="w-11 h-11 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shadow-lg shadow-emerald-950/50">
                 <Utensils className="w-6 h-6" />

@@ -14,6 +14,7 @@ import {
   Utensils,
 } from 'lucide-react';
 import api from '../api/axios';
+import BrandLogo from '../components/BrandLogo';
 
 export default function DonorDashboard() {
   const navigate = useNavigate();
@@ -117,18 +118,7 @@ export default function DonorDashboard() {
       {/* Top Navbar */}
       <header className="border-b border-slate-800/80 bg-slate-900/60 backdrop-blur-xl sticky top-0 z-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-              <Utensils className="w-5 h-5" />
-            </div>
-            <div>
-              <span className="font-bold text-white tracking-tight">SurplusRoute</span>
-              <span className="ml-2 text-xs px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                Donor Portal
-              </span>
-            </div>
-          </div>
-
+           <BrandLogo badge="Donor Hub" />
           <div className="flex items-center gap-4">
             <span className="text-sm text-slate-400 hidden sm:inline">
               Welcome, <strong className="text-slate-200">{user?.name}</strong>
