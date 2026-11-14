@@ -213,14 +213,7 @@ export default function AuthPage() {
 
           <div className="space-y-3">
             <BrandLogo size="lg" />
-            <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shadow-lg shadow-emerald-950/50">
-                <Utensils className="w-6 h-6" />
-              </div>
-              <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-                Surplus<span className="text-emerald-400">Route</span>
-              </h1>
-            </div>
+            
             <p className="text-slate-400 text-sm sm:text-base leading-relaxed max-w-xl">
               Real-time food redistribution connecting banquet halls, restaurants, and events with nearby NGOs using Gemini Vision triage and geospatial dispatch.
             </p>
